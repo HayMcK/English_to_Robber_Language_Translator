@@ -4,7 +4,7 @@ Student ID: 2395864
 Section Number: CPSC 350-03  
   
 Sources:  
-https://cplusplus.com/forum/beginner/11304/
+https://cplusplus.com/forum/beginner/11304/  
 https://www.scaler.com/topics/cpp-string-contains/  
   
 Run requirements: This program requires command line parameters:  
