@@ -1,4 +1,4 @@
-# McKenna_H_A1
+# English_to_Robber_Language_Translator
 Name: Hayden McKenna  
 Student ID: 2395864  
 Section Number: CPSC 350-03  
