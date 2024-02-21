@@ -8,7 +8,7 @@ https://cplusplus.com/forum/beginner/11304/
 https://www.scaler.com/topics/cpp-string-contains/  
   
 Run requirements: This program requires command line parameters:  
-./run <fileName1> <fileName2>  
+./run fileName1 fileName2  
 Example:  
 g++ *.cpp -o translate  
 ./translate original.txt output.html
