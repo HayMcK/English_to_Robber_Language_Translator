@@ -1,17 +1,19 @@
 #ifndef TRANSLATOR_H
 #define TRANSLATOR_H
 
-#include <iostream>
+#include "Model.h"
+
 using namespace std;
 
+//A class that will translate English sentences to Robber Language sentences using the Model class.
 class Translator{
-    //a class named Translator that will translate English sentences to Rövarspråket sentences using the Model class.
     private:
+        Model *myModel;
     public:
         Translator();
         ~Translator();
-        string translateEnglishWord(string &engWrd);//Takes a single string representing a single English word as input and returns a string representing the Rövarspråket translation.
-        string translateEnglishSentence(string &engSent);//Takes a single string representing a single English sentence as input and returns a string representing the Rövarspråket translation. Account for punctuation.
+        string translateEnglishWord(string &engWrd);
+        string translateEnglishSentence(string &engSent);
         bool isVowel(char inp);
 };
 #endif
