@@ -1,10 +1,16 @@
 #include "Translator.h"
-#include "Model.h"
 
-Translator::Translator(){};
+//Default constructor
+Translator::Translator(){
+    myModel = new Model;
+};
 
-Translator::~Translator(){};
+//Destructor
+Translator::~Translator(){
+    delete myModel;
+};
 
+//Boolean function to check if the read character is a vowel
 bool Translator::isVowel(char inp){
     char tmp = tolower(inp);
     switch(tmp){
@@ -29,22 +35,25 @@ bool Translator::isVowel(char inp){
     }
 }
 
+//Function to translate a whole word by calling translate single vowel
+//or translate single consonant from the model class.
 string Translator::translateEnglishWord(string &engWord){   
     string myWord;
     for(int i = 0; i < engWord.size(); ++i){
         char tmp = engWord[i];
         if (isVowel(tmp)){
-            Model m;
-            myWord += m.translateSingleVowel(tmp);
+            myWord += myModel->translateSingleVowel(tmp);
         }
         else{
-            Model n;
-            myWord += n.translateSingleConsonant(tmp);
+            myWord += myModel->translateSingleConsonant(tmp);
         }
     }
+    //delete myModel;
     return myWord;
 }
 
+//Function to translate whole sentences/lines by calling
+//word translator after certain conditions are met.
 string Translator::translateEnglishSentence(string &engSent){
     string mySent;
     string myWord;
