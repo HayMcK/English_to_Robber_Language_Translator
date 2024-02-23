@@ -48,7 +48,6 @@ string Translator::translateEnglishWord(string &engWord){
             myWord += myModel->translateSingleConsonant(tmp);
         }
     }
-    //delete myModel;
     return myWord;
 }
 
