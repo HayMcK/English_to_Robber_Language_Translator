@@ -67,5 +67,4 @@ void FileProcessor::processFile(string inpFile, string outFile){
         writeHTMLFile(engOut, rovOut, outFile);
         myFile.close();
     }
-    //delete myTranslator;
 }
