@@ -1,23 +1,37 @@
 #include "FileProcessor.h" 
-#include "Translator.h"
 
-FileProcessor::FileProcessor(){}
-
-FileProcessor::~FileProcessor(){}
-
-bool FileProcessor::checkHTML(string fileName){
-    bool isFound;
-    string check = ".html";
-    isFound = fileName.find(check) != string::npos;
-    return isFound;
+//Default constructor
+FileProcessor::FileProcessor(){
+    myTranslator = new Translator;
 }
 
+//Destructor
+FileProcessor::~FileProcessor(){}
+
+//A boolean function to check if the output file
+//that is input in the command line is an HTML file
+bool FileProcessor::checkHTML(string fileName){
+    string end = ".html";
+    string tmp;
+    if(fileName.length() <= 5){//make sure the file name isn't just ".html" or shorter
+        return 0;
+    }
+    for (int i = fileName.length()-5; i < fileName.length(); ++i){//only compare the end of the string for the filename extension type of html
+        tmp = tmp + fileName[i];
+    }
+    if(tmp == end){
+        return 1;
+    }
+    else{return 0;}
+}
+
+//A function to write to the HTML file
 void FileProcessor::writeHTMLFile(string engInp, string rovInp, string outFile){
-    ofstream newFile(outFile);
-    if(!checkHTML(outFile)){
+    if(!checkHTML(outFile)){//check if the file ends with .html
         cout << "Failed to open output file. Possible invalid file name or type." << endl;
     }
-    else{
+    else{//set up the formatting and input the original/translation texts for the html file
+        ofstream newFile(outFile);
         newFile << "<!DOCTYPE html>" << endl;
         newFile << "<html>" << endl;
         newFile << "<head>" << endl;
@@ -32,22 +46,26 @@ void FileProcessor::writeHTMLFile(string engInp, string rovInp, string outFile){
     }
 }
 
+/* A function to process the input file and call the translator class 
+then output the original text with the translated text to the output 
+file name that is input as a command line prompt. The output file will 
+have the original text in bold and the translated text in italics. */
 void FileProcessor::processFile(string inpFile, string outFile){
     ifstream myFile(inpFile);
-    if (!myFile){
+    if (!myFile){//check if the input file opens
         cout << "Failed to open input file. Possible invalid file name." << endl;
     }
     else{
         string myLine;
         string engOut;
         string rovOut;
-        while(!myFile.eof()){
+        while(!myFile.eof()){//while the file contains another line
             getline(myFile, myLine);
-            Translator t;
             engOut = engOut + myLine + "<br>";
-            rovOut = rovOut + t.translateEnglishSentence(myLine) + "<br>";
+            rovOut = rovOut + myTranslator->translateEnglishSentence(myLine) + "<br>";
         }
         writeHTMLFile(engOut, rovOut, outFile);
         myFile.close();
     }
+    //delete myTranslator;
 }
