@@ -1,21 +1,22 @@
 #ifndef FILEPROCESSOR_H
 #define FILEPROCESSOR_H
 
-#include <iostream>
+#include "Translator.h"
 #include <fstream>
 
 using namespace std;
 
+/* A class that will thake text files (.txt) containing English text 
+and produce a HTML file containing the equivalent Robber Language 
+translation that can be viewed in a standard web browser. */
 class FileProcessor{
-    /*  A class named FileProcessor that will take text files (.txt) containing English text and produce 
-    a HTML file containing the equivalent Rövarspråket translation that can be viewed
-    in a standard web browser.  */
     private:
+        Translator *myTranslator;
     public:
         FileProcessor();
         ~FileProcessor();
         bool checkHTML(string fileName);
-        void processFile(string inpFile, string outFile);//should produce an HTML file that has the original English text in bold followed by an empty line, followed by the Rövarspråket translation in italics
+        void processFile(string inpFile, string outFile);
         void writeHTMLFile(string engInp, string rovInput, string outFile);
 };
 #endif 
