@@ -5,7 +5,8 @@ Section Number: CPSC 350-03
   
 Sources:  
 https://cplusplus.com/forum/beginner/11304/  
-https://www.scaler.com/topics/cpp-string-contains/  
+https://html.com/#Creating_Your_First_HTML_Webpage  
+
   
 Run requirements: This program requires command line parameters:  
 ./run fileName1 fileName2  
