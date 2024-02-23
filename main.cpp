@@ -1,6 +1,5 @@
 #include "FileProcessor.h"
-#include "Model.h"
-#include "Translator.h"
+
 
 int main(int argc, char **argv){
     if(argc == 3){
