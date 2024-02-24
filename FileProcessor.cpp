@@ -30,10 +30,10 @@ that is input in the command line is a .txt file. */
 bool FileProcessor::checkTXT(string fileName){
     string end = ".txt";
     string tmp;
-    if(fileName.length() <= 4){//make sure the file name isn't just ".html" or shorter
+    if(fileName.length() <= 4){//make sure the file name isn't just ".txt" or shorter
         return 0;
     }
-    for (int i = fileName.length()-4; i < fileName.length(); ++i){//only compare the end of the string for the filename extension type of html
+    for (int i = fileName.length()-4; i < fileName.length(); ++i){//only compare the end of the string for the filename extension type of txt
         tmp = tmp + fileName[i];
     }
     if(tmp == end){
@@ -68,7 +68,7 @@ then output the original text with the translated text to the output
 file name that is input as a command line prompt. The output file will 
 have the original text in bold and the translated text in italics. */
 void FileProcessor::processFile(string inpFile, string outFile){
-    if(!checkTXT(inpFile)){
+    if(!checkTXT(inpFile)){ //check if the file ends with .txt
         cout << "Invalid input file name. Must be a .txt file." << endl;
     }
     else{
