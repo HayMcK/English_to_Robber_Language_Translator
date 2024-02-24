@@ -16,6 +16,7 @@ class FileProcessor{
         FileProcessor();
         ~FileProcessor();
         bool checkHTML(string fileName);
+        bool checkTXT(string fileName);
         void processFile(string inpFile, string outFile);
         void writeHTMLFile(string engInp, string rovInput, string outFile);
 };
